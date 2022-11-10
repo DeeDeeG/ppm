@@ -29,8 +29,8 @@ jobs:
           node-version: ${{ matrix.node_version }}
           architecture: ${{ matrix.node_arch }}
 
-      # - if: "!(contains(matrix.os, 'windows') && matrix.node_version == 14)"
-      - name: Install npm
+      - if: "!(contains(matrix.os, 'windows') && matrix.node_version == 14)"
+        name: Install npm
         run: |
           npm --version
           npm install -g npm
