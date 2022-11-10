@@ -33,7 +33,7 @@ jobs:
       - name: Install npm
         run: |
           npm --version
-          npm install -g npm
+          yarn global add npm
           npm --version
         shell: bash
 
