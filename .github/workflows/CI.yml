@@ -31,7 +31,10 @@ jobs:
 
       # - if: "!(contains(matrix.os, 'windows') && matrix.node_version == 14)"
       - name: Install npm
-        run: npm install -g npm
+        run: |
+          npm --version
+          npm install -g npm
+          npm --version
         shell: bash
 
       - name: Install dependencies
