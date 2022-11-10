@@ -16,7 +16,7 @@ jobs:
           - macos-latest
           - windows-2019
         node_version:
-          - 14
+          - 14.21
           - 16
         node_arch:
           - x64
@@ -29,7 +29,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
           architecture: ${{ matrix.node_arch }}
 
-      - if: "!(contains(matrix.os, 'windows') && matrix.node_version == 14)"
+      - if: "!(contains(matrix.os, 'windows') && contains(matrix.node_version, 14))"
         name: Install npm
         run: |
           npm --version
