@@ -6,7 +6,7 @@ const https = require("https");
 // Update nodeVersion here to run those specs against newer Node source files.
 // (May be needed to work around build issues with newer Node bundled with ppm.)
 // This string is also hard-coded in those spec files, so update it there, too.
-const nodeVersion = "v18.12.1"
+const nodeVersion = "v18.12.1";
 
 const filesToFetch = [
   {url: `https://nodejs.org/dist/${nodeVersion}/node-${nodeVersion}.tar.gz`,
@@ -48,11 +48,11 @@ async function ensureFile (details) {
   const existingFileIsCorrect = await verifyExistingFile(destinationPath, details.sha256sum);
 
   if (!existingFileIsCorrect) {
-    logVerbose("Hash did not match, re-downloading...")
+    logVerbose("Hash did not match, re-downloading...");
     // Get the file
     downloadFileToDestination(details.url, destinationPath, details.sha256sum)
       .then(async function () {
-        console.log(`Successfully downloaded file from ${details.url}.`)
+        console.log(`Successfully downloaded file from ${details.url}.`);
         logVerbose("checking if hash matches in for...of loop.");
         // Check its hash
         const hashDidMatch = await verifyHash(destinationPath, details.sha256sum);
@@ -68,12 +68,12 @@ async function verifyExistingFile (targetPath, expectedHash) {
   if (fs.existsSync(targetPath)) {
     logVerbose(targetPath + " already exists.");
 
-    logVerbose(`verifying hash for ${targetPath} in verifyExistingFile`)
-    const hashDidMatch = await verifyHash(targetPath, expectedHash)
+    logVerbose(`verifying hash for ${targetPath} in verifyExistingFile`);
+    const hashDidMatch = await verifyHash(targetPath, expectedHash);
 
     if (hashDidMatch) {
       // Successfully verified existing file. Return true.
-      console.log(`Existing file ${targetPath} successfully verified.`)
+      console.log(`Existing file ${targetPath} successfully verified.`);
       return true;
     } else {
       // Existing file's hash was wrong. Delete the old file.
@@ -98,9 +98,9 @@ async function verifyHash (path, expectedHash) {
   const { createHash } = require("node:crypto");
 
   const hash = createHash("sha256");
-  hash.update(fs.readFileSync(path))
+  hash.update(fs.readFileSync(path));
   const actualHash = hash.digest("hex");
-  hash.end()
+  hash.end();
   // The hash of the actual file on disk.
 
   logVerbose("expectedHash is: " + expectedHash);
