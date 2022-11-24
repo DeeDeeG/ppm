@@ -53,7 +53,7 @@ async function ensureFile (details) {
   logVerbose(details);
 
   const destinationPath = path.resolve(sourceFixtureDir, details.filename);
-  logVerbose(`destinationPath is: `${destinationPath}`);
+  logVerbose(`destinationPath is: ${destinationPath}`);
 
   const existingFileIsCorrect = await verifyExistingFile(destinationPath, details.sha256sum);
 
