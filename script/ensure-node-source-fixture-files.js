@@ -38,7 +38,7 @@ const filesToFetch = [
   // for the new files and update them here to match the new files.
 
 const sourceFixtureDir = path.resolve(__dirname, "..", "spec", "fixtures", "node-source");
-fs.mkdirSync(sourceFixtureDir, {recursive: true});
+fs.mkdirSync(sourceFixtureDir, { recursive: true });
 
 for (const details of filesToFetch) {
   ensureFile(details);
