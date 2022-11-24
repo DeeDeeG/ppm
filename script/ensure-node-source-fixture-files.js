@@ -53,7 +53,7 @@ async function ensureFile (details) {
   logVerbose(details);
 
   const destinationPath = path.resolve(sourceFixtureDir, details.filename);
-  logVerbose('destinationPath is: ' + destinationPath);
+  logVerbose(`destinationPath is: `${destinationPath}`);
 
   const existingFileIsCorrect = await verifyExistingFile(destinationPath, details.sha256sum);
 
@@ -76,7 +76,7 @@ async function ensureFile (details) {
 
 async function verifyExistingFile (targetPath, expectedHash) {
   if (fs.existsSync(targetPath)) {
-    logVerbose(targetPath + " already exists.");
+    logVerbose(`${targetPath} already exists.`);
 
     logVerbose(`verifying hash for ${targetPath} in verifyExistingFile`);
     const hashDidMatch = await verifyHash(targetPath, expectedHash);
@@ -92,7 +92,7 @@ async function verifyExistingFile (targetPath, expectedHash) {
     }
   } else {
     // File did not actually exist.
-    logVerbose(targetPath + " does not exist.");
+    logVerbose(`${targetPath} does not exist.`);
   }
   // If we haven't returned yet, verification did not succeed. Return false.
   return false;
@@ -113,8 +113,8 @@ async function verifyHash (path, expectedHash) {
   hash.end();
   // The hash of the actual file on disk.
 
-  logVerbose("expectedHash is: " + expectedHash);
-  logVerbose("actualHash is: " + actualHash);
+  logVerbose(`expectedHash is: ${expectedHash}`);
+  logVerbose(`actualHash is: ${actualHash}`);
   // The expected hash is from the array of objects at the top of the file.
 
   if (actualHash === expectedHash) {
