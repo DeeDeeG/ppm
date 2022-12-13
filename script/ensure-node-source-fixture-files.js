@@ -152,12 +152,12 @@ function downloadFileToDestination(url, filePath, expectedHash) {
 
 function logVerbose (message) {
   // Logs a bunch of verbose information, for debugging purposes.
-  // Run this script with '--verbose' to help troubleshoot issues.
+  // Run this script with "--verbose" to help troubleshoot issues.
 
   // Note: Lots of stuff in this script is async and will print out-of-order.
   // For example: Smaller files will finish downloading first,
   // and their post-download log messages will print in the middle of other stuff.
-  if (process.argv.includes('--verbose')) {
+  if (process.argv.includes("--verbose")) {
     console.log(message);
   }
 }
