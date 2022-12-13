@@ -44,7 +44,7 @@ for (const details of filesToFetch) {
   ensureFile(details);
 } // This is the main loop, with support functions below.
 
-async function ensureFile (details) {
+async function ensureFile(details) {
   // We check if the file already exists, and if so,
   // make sure its sha256sum matches the expected/correct value.
   // If it doesn't exist or has the wrong hash, try to re-download.
@@ -74,7 +74,7 @@ async function ensureFile (details) {
   }
 }
 
-async function verifyExistingFile (targetPath, expectedHash) {
+async function verifyExistingFile(targetPath, expectedHash) {
   if (fs.existsSync(targetPath)) {
     logVerbose(`${targetPath} already exists.`);
 
@@ -98,7 +98,7 @@ async function verifyExistingFile (targetPath, expectedHash) {
   return false;
 }
 
-async function verifyHash (path, expectedHash) {
+async function verifyHash(path, expectedHash) {
   // Checks the hash of a given locally downloaded file against its expected value.
   // Returns true/false.
   // See: https://nodejs.org/api/crypto.html#class-hash for details.
@@ -150,7 +150,7 @@ function downloadFileToDestination(url, filePath, expectedHash) {
   });
 }
 
-function logVerbose (message) {
+function logVerbose(message) {
   // Logs a bunch of verbose information, for debugging purposes.
   // Run this script with "--verbose" to help troubleshoot issues.
 
