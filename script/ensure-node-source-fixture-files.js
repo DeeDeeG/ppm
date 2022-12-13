@@ -60,7 +60,7 @@ async function ensureFile(details) {
   if (!existingFileIsCorrect) {
     logVerbose("Hash did not match, re-downloading...");
     // Get the file
-    downloadFileToDestination(details.url, destinationPath, details.sha256sum)
+    downloadFileToDestination(details.url, destinationPath)
       .then(async function () {
         console.log(`Successfully downloaded file from ${details.url}.`);
         logVerbose("checking if hash matches in for...of loop.");
@@ -126,7 +126,7 @@ async function verifyHash(path, expectedHash) {
   }
 }
 
-function downloadFileToDestination(url, filePath, expectedHash) {
+function downloadFileToDestination(url, filePath) {
   // Actually downloads the desired file to disk.
   // Returns a Promise.
   // Based on https://scrapingant.com/blog/download-image-javascript
