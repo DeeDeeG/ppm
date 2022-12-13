@@ -34,8 +34,8 @@ const filesToFetch = [
     filename: "SHASUMS256.txt",
     sha256sum: "64aad1211a6003dd6529ebf9f19167769d0356ce5affc4245bb26c35aa66a9ed"
   },
-] // If you ever need to update to a newer Node version, just calculate the sha256sums
-  // for the new files and update them here to match the new files.
+]; // If you ever need to update to a newer Node version, just calculate the sha256sums
+   // for the new files and update them here to match the new files.
 
 const sourceFixtureDir = path.resolve(__dirname, "..", "spec", "fixtures", "node-source");
 fs.mkdirSync(sourceFixtureDir, { recursive: true });
