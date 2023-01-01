@@ -13,7 +13,7 @@ describe 'apm clean', ->
     silenceOutput()
     spyOnToken()
 
-    nodeVersion = 'v12.2.3'
+    nodeVersion = require('./config.json').nodeVersion
 
     app = express()
 

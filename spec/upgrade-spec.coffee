@@ -22,7 +22,7 @@ describe "apm upgrade", ->
     atomHome = temp.mkdirSync('apm-home-dir-')
     process.env.ATOM_HOME = atomHome
 
-    nodeVersion = 'v12.2.3'
+    nodeVersion = require('./config.json').nodeVersion
 
     app = express()
     app.get '/packages/test-module', (request, response) ->
