@@ -1,0 +1,4 @@
+{
+  "nodeVersion": "v12.2.3",
+  "node-version-comment": "This is used by various spec files. Update it here to match when the fixture tarballs/node.lib/SHA256SUMS files are updated to a new version."
+}
