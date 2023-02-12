@@ -13,3 +13,4 @@ echo ^>^> Rebuilding apm dependencies with bundled Node !bundledVersion!
 set JOBS=16
 
 call .\bin\npm.cmd rebuild
+
