@@ -20,3 +20,5 @@ if exist "%~dp0\node.exe" (
 ) else (
   node.exe "%~dp0/../lib/cli.js" %*
 )
+
+exit /b
