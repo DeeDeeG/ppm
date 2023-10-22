@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - fix-CI-node-18
 
 jobs:
   Test:
