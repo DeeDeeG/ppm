@@ -30,11 +30,11 @@ module.exports = {
       if (process.env.ATOM_RESOURCE_PATH) {
         return void process.nextTick(() => resolve(process.env.ATOM_RESOURCE_PATH));
       }
-  
+
       if (asarPath) { // already calculated
         return void process.nextTick(() => resolve(asarPath));
       }
-  
+
       let apmFolder = path.resolve(__dirname, '..');
       let appFolder = path.dirname(apmFolder);
       if ((path.basename(apmFolder) === 'ppm') && (path.basename(appFolder) === 'app')) {
@@ -43,7 +43,7 @@ module.exports = {
           return void process.nextTick(() => resolve(asarPath));
         }
       }
-  
+
       apmFolder = path.resolve(__dirname, '..', '..', '..');
       appFolder = path.dirname(apmFolder);
       if ((path.basename(apmFolder) === 'ppm') && (path.basename(appFolder) === 'app')) {
@@ -52,7 +52,7 @@ module.exports = {
           return void process.nextTick(() => resolve(asarPath));
         }
       }
-  
+
       switch (process.platform) {
         case 'darwin':
           return child_process.exec('mdfind "kMDItemCFBundleIdentifier == \'dev.pulsar-edit.pulsar\'"', (error, stdout, _stderr) => {
@@ -87,10 +87,13 @@ module.exports = {
   },
 
   getAtomPackagesUrl() {
-    return process.env.ATOM_PACKAGES_URL ?? `${this.getAtomApiUrl()}/packages`;
+    let value = process.env.ATOM_PACKAGES_URL ?? `${this.getAtomApiUrl()}/packages`;
+    console.log('RETURNING', value);
+    return value;
   },
 
   getAtomApiUrl() {
+    console.log('getAtomApiUrl');
     return process.env.ATOM_API_URL ?? "https://api.pulsar-edit.dev/api";
   },
 

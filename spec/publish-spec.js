@@ -14,7 +14,7 @@ describe('apm publish', () => {
   let requests;
   beforeEach(() => {
     spyOnToken();
-    silenceOutput();
+    // silenceOutput();
 
     spyOn(Command.prototype, 'spawn').andCallFake(
       (command, args, optionsOrCallback, callbackOrMissing) => {
