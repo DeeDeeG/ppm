@@ -13,8 +13,9 @@ describe('apm publish', () => {
 
   let requests;
   beforeEach(() => {
+    delete process.env.ATOM_PACKAGES_URL;
     spyOnToken();
-    // silenceOutput();
+    silenceOutput();
 
     spyOn(Command.prototype, 'spawn').andCallFake(
       (command, args, optionsOrCallback, callbackOrMissing) => {
@@ -57,7 +58,6 @@ describe('apm publish', () => {
       process.env.ATOM_HOME = temp.mkdirSync('apm-home-dir-');
       process.env.ATOM_API_URL = 'http://127.0.0.1:3000/api';
       process.env.ATOM_RESOURCE_PATH = temp.mkdirSync('atom-resource-path-');
-      console.log('SET ATOM_API_URL TO', process.env.ATOM_API_URL);
       setTimeout(() => {
         live = true;
       }, 3000);
@@ -238,7 +238,6 @@ describe('apm publish', () => {
     const callback = jasmine.createSpy('callback');
     apm.run(['publish', 'patch'], callback);
     waitsFor('waiting for publish to complete', 600000, () => callback.callCount === 1);
-    spyOn
     runs(() => {
       expect(requests.length).toBe(1);
       expect(callback.mostRecentCall.args[0]).toBeUndefined();
