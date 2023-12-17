@@ -14,7 +14,7 @@ describe('apm publish', () => {
   let requests;
   beforeEach(() => {
     spyOnToken();
-    silenceOutput();
+    // silenceOutput();
 
     spyOn(Command.prototype, 'spawn').andCallFake(
       (command, args, optionsOrCallback, callbackOrMissing) => {
@@ -58,6 +58,7 @@ describe('apm publish', () => {
       process.env.ATOM_API_URL = 'http://127.0.0.1:3000/api';
       process.env.ATOM_RESOURCE_PATH = temp.mkdirSync('atom-resource-path-');
       live = true;
+      console.log('SET ATOM_API_URL TO', process.env.ATOM_API_URL);
     });
     waitsFor(() => live);
   });

@@ -93,8 +93,9 @@ module.exports = {
   },
 
   getAtomApiUrl() {
-    console.log('getAtomApiUrl');
-    return process.env.ATOM_API_URL ?? "https://api.pulsar-edit.dev/api";
+    let value =  process.env.ATOM_API_URL ?? "https://api.pulsar-edit.dev/api";
+    console.log('getAtomApiUrl:', value);
+    return value;
   },
 
   getElectronArch() {
