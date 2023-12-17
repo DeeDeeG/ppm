@@ -87,15 +87,11 @@ module.exports = {
   },
 
   getAtomPackagesUrl() {
-    let value = process.env.ATOM_PACKAGES_URL ?? `${this.getAtomApiUrl()}/packages`;
-    console.log('RETURNING', value);
-    return value;
+    return process.env.ATOM_PACKAGES_URL ?? `${this.getAtomApiUrl()}/packages`;
   },
 
   getAtomApiUrl() {
-    let value =  process.env.ATOM_API_URL ?? "https://api.pulsar-edit.dev/api";
-    console.log('getAtomApiUrl:', value);
-    return value;
+    return process.env.ATOM_API_URL ?? "https://api.pulsar-edit.dev/api";
   },
 
   getElectronArch() {
