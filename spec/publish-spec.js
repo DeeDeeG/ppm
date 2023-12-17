@@ -14,7 +14,6 @@ describe('apm publish', () => {
   beforeEach(() => {
     spyOnToken();
     silenceOutput();
-    const app = express();
 
     spyOn(Command.prototype, 'spawn').andCallFake(
       (command, args, optionsOrCallback, callbackOrMissing) => {
@@ -37,6 +36,8 @@ describe('apm publish', () => {
         return Promise.resolve('0.0.1');
       }
     );
+
+    const app = express();
 
     app.post('/api/packages', (req, res) => {
       res.sendStatus(201);
