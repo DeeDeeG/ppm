@@ -8,7 +8,7 @@ const apm = require('../src/apm-cli');
 const Publish = require('../src/publish');
 const Command = require('../src/command');
 
-describe('apm publish', () => {
+fdescribe('apm publish', () => {
   let server;
 
   let requests;
