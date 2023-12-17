@@ -57,8 +57,10 @@ describe('apm publish', () => {
       process.env.ATOM_HOME = temp.mkdirSync('apm-home-dir-');
       process.env.ATOM_API_URL = 'http://127.0.0.1:3000/api';
       process.env.ATOM_RESOURCE_PATH = temp.mkdirSync('atom-resource-path-');
-      live = true;
       console.log('SET ATOM_API_URL TO', process.env.ATOM_API_URL);
+      setTimeout(() => {
+        live = true;
+      }, 3000);
     });
     waitsFor(() => live);
   });
