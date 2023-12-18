@@ -130,8 +130,9 @@ have published it.\
               }
             }
           )
+          setTimeout(requestTags, interval);
         };
-        setTimeout(requestTags, interval);
+        requestTags();
       });
     }
 
